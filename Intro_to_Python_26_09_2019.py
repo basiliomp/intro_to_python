@@ -121,13 +121,48 @@ mytuple[0::3]
 # 5 & 6 & 3 & 10
 # \end{pmatrix}$$
 # 
+mymatrix = [[3, 4, 7, 2],
+            [1, 0, 1, 1],
+            [5, 6 ,3 ,10]]
+print(mymatrix)
+
 # Calculate the following operations:
-#  - Mean of each column.
-#  - Mean of each row.
-#  - Number of elements in the matrix.
-#  - Sum of all the elements ins the matrix.
-#  - Minimum value in the matrix.
-#  - Maximum value in the matrix.
+
+# Mean of each column
+current_c = 0
+(mymatrix[0][current_c] + mymatrix[1][current_c] + mymatrix[2][current_c]) / 3
+
+current_c = 1
+(mymatrix[0][current_c] + mymatrix[1][current_c] + mymatrix[2][current_c]) / 3
+
+current_c = 2
+(mymatrix[0][current_c] + mymatrix[1][current_c] + mymatrix[2][current_c]) / 3
+
+current_c = 3
+(mymatrix[0][current_c] + mymatrix[1][current_c] + mymatrix[2][current_c]) / 3
+
+# Mean of each row
+current_r = 0
+sum(mymatrix[current_r]) / len(mymatrix[current_r])
+
+current_r = 1
+sum(mymatrix[current_r]) / len(mymatrix[current_r])
+
+current_r = 2
+sum(mymatrix[current_r]) / len(mymatrix[current_r])
+
+
+#Number of elements in the matrix.
+len(mymatrix[0]) + len(mymatrix[1]) + len(mymatrix[2])
+
+#Sum of all the elements ins the matrix.
+sum(mymatrix)
+
+#Minimum value in the matrix.
+min(mymatrix)
+
+#Maximum value in the matrix.
+max(mymatrix)
 
 # ### Operators and language
 
