@@ -1,0 +1,2 @@
+This is the first line of my second text file. 
+And thi is the second line of my second text file. 
