@@ -206,17 +206,32 @@ if 'broken' in tweet2 and company_name in tweet2:
     
     # Copy instructions from BaseCamp
     
-    # Create a text file in which each line represents
+    # Create a text file in which each line contains a colour and a number (diameter).
+    mytxt = open("my_text_file.txt", "wt")
+        
+    import os 
+    os.listdir()
     
+    mytxt.write('red, 8 \n')
+    mytxt.write('blue, 3 \n')
+    mytxt.write('green, 9.2 \n')
+    mytxt.write('yellow, 3.1 \n') 
+    mytxt.write('orange, 5 \n')
+    mytxt.write('black, 0.66')
     
+    mytxt.close()
     # Read it
-    
+    mytxt = open("my_text_file.txt", "rt")
+    mytxt.readlines()
     # Show sentences like 'The circle of X colour has an area of X units'.
+print("The circle of %s colour has an area of %s units.")
 
 ### Second exercise 
     
-    # Read a text file with keywords, one for each line, and get to know how many there are..
-    # Show a warning 
+    # Read a text file with keywords, one for each line (assuming you know how many there are).
+    
+    # Show a warning when a sentence with one of those keywords is written in the keyboard input.
+    
     # Write those sentences with keywords in a new file.
 
 

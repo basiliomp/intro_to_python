@@ -1,0 +1,6 @@
+red, 8 
+blue, 3 
+green, 9.2 
+yellow, 3.1 
+orange, 5 
+black, 0.66
