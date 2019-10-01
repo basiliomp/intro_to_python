@@ -209,7 +209,8 @@ if 'broken' in tweet2 and company_name in tweet2:
     # Create a text file in which each line contains a colour and a number (diameter).
     mytxt = open("my_text_file.txt", "wt")
         
-    import os 
+    import os
+    import math
     os.listdir()
     
     mytxt.write('red, 8 \n')
@@ -222,22 +223,47 @@ if 'broken' in tweet2 and company_name in tweet2:
     mytxt.close()
     # Read it
     mytxt = open("my_text_file.txt", "rt")
-    mytxt.readlines()
+    myline = mytxt.readline()
+    print(myline)
+    fields = myline.split(",")
+    radius = float(fields[1]) / 2
+    area = math.pi * radius ** 2
+    colour = fields[0]
     # Show sentences like 'The circle of X colour has an area of X units'.
-print("The circle of %s colour has an area of %s units.")
+    print("The circle of {colour} colour has an area of {area:.2f} units.".format(
+            colour = colour, area = area))
+
+# You shoudl run the code in the paragraph above as many times as lines are present in the text file. 
 
 ### Second exercise 
     
-    # Read a text file with keywords, one for each line (assuming you know how many there are).
+# Read a text file with keywords, one for each line (assuming you know how many there are).
+kw = open("keywords.txt", "rt")
+
+# Storing the keywords in a variable (keywords recopilation)
+kw0 = kw.readline()[:-1]
+kw1 = kw.readline()[:-1]
+kw2 = kw.readline()[:-1] 
+kw3 = kw.readline() 
+
+sentence = input()
+
+# Show a warning when a sentence with one of those keywords is written in the keyboard input.
+if kw0 in sentence or kw1 in sentence or kw2 in sentence or kw3 in sentence:
+    print("warning! Keyword present in {sentence}!".format(sentence = sentence) )    
+
+# Write those sentences with keywords in a new file.
+if kw0 in sentence or kw1 in sentence or kw2 in sentence or kw3 in sentence:
+    print("warning! Keyword present in {sentence}!".format(sentence = sentence) )
+    kwwritten = open("keywords_written.txt", "at")
+    kwwritten.write(sentence)
+    kwwritten.close()
     
-    # Show a warning when a sentence with one of those keywords is written in the keyboard input.
-    
-    # Write those sentences with keywords in a new file.
+with open("keywords_written.txt", "rt") as kw_written:
+    print(kw_written.readlines())
 
-
-
-
-
+kw.close()
+kwwritten.close()
 
 
 
