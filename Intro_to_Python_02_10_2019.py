@@ -136,6 +136,54 @@ def slow_sum(a: int, b: int) -> int:
 ############
 
 # Build a function that turns a string over (end to start).
+# Like "abcd" => "dcba"
+
+def str_invert(st: str) -> str:
+    ist = list(st)
+    for i in range(len(st)):
+        ist[i - 1] = st[-i]
+    for i in range(len(ist)):
+        ist[len(ist)-i] = ist[i]
+    return(''.join(ist))
+str_invert("rebold")
+
+def str_invert(st: str) -> str:
+    """Returns inverse string."""
+    rev = ''
+    for i in range(1, len(st) + 1):
+        rev = rev + st[-i]
+    return rev
+
+# Another solution from class
+def str_invert(st: str) -> str:
+    """Returns inverse string."""
+    rev = ''
+    for i in range(-1, -1, -1):
+        rev = rev + st[i]
+    return rev
+
+def str_invert(st: str) -> str:
+    """Returns inverse string."""
+    rev = ''
+    while len(st) > 0:
+        rev += st[-1]
+        st = st[:1]
+    return rev
+
+def str_invert(st: str) -> str:
+    """Returns inverse string."""
+    rev = ''
+    for char in st:
+        rev = char + rev
+    return rev
+
+
+# Professional solution ;)
+def str_invert(st: str) -> str:
+    """Returns inverse string."""
+    return st[::-1] # This is slicing the string starting from the beginnig
+                    # (first empty argument) argument, in steps of minus one (third
+                    # argument, declared).
 
 
 
@@ -146,14 +194,4 @@ def slow_sum(a: int, b: int) -> int:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+ 
