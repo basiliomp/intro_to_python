@@ -58,14 +58,12 @@ def fibonacci(n: int) -> int:
     else:
         a = 0
         b = 1
-        for i in range(1, n):
+        for i in range(2, n):
             c = a + b
             a = b
             b = c
         return c
     
-    pass
-
 # Recursive solution
 def fibonacci(n: int) -> int:
     """ Returns the nth number of the Fibonacci's sequence. """
@@ -73,8 +71,8 @@ def fibonacci(n: int) -> int:
     if n < 2:
         return n
     return fibonacci(n - 1) + fibonacci(n - 2)
- 
-    
+# In this example, the recursive function is much slower!
+# Try it by calling each of these functions with a large number as argument.
     
 ###
 # Another exercise
@@ -88,16 +86,48 @@ employees = [[['Alan',  19, 'uk', 'm'],
 
 # The first table-list gathers the names of employees in department A, and the 
 # second one department B.
-# Extract the following information, using as few lines of code as possible:
+# Extract the following information:
+    
     # Average age in each department.
 def avg_dept(n: int) -> float:
-    len(employees[1])
-    pass
+    summ_age = 0
+    for i in range(len(employees[n])):
+        summ_age += employees[n][i][1]
+    return summ_age / len(employees[n])
     
     # Maximum age above all employees.
+from typing import List
+def max_age(employees: List[List[List]]) -> int:
+    maximum = 0
+    for dept in employees:
+        for person in dept:
+            if person[1] > maximum:
+                maximum = person[1]
+    return maximum
+    
     # Number of nationalities in the company.
+
+
     # Share of women in each department
+def share_women(dept: List[List]) -> float:
+    n_women = 0
+    for person in dept:
+         if person[3] == 'w':
+             n_women += 1
+    return (n_women / len(dept)) * 100
+
     # Find what is the most frequent nationality.
+def freq_nation(employees: List[List[List]]) -> int:
+    nationalities = list()
+    for dept in employees:
+        for person in dept:
+            nationalities.append(person[2])
+    nation.mode = 'none'
+    for nation in nationalities:
+        if nationalities.count(nationalities[nation]) > nation.mode:
+            nationalities.insert(0, nationalities[nation])
+    return nationalities
+
 
 ###
 # Another exercise
