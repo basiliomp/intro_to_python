@@ -109,10 +109,12 @@ for n in range(len(mkmx)):
 def is_prime(n:int) -> bool:
     """ Evaluates whether the number given is prime. """
     for i in range(1, n):
-        if n % i != 0 and i != n:
+        if n <= 0:
+            return False
+        elif n % i == 0 and and i != 1 and i != n:
             print(i, n)
-            return True
-    return False
+            return False
+    return True
 
 # Build a function that calculates the 
 
