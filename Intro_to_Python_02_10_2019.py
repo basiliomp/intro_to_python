@@ -110,7 +110,8 @@ def my_sqrt(n: int) -> Tuple[float, float]:
 # Assert
 ########
 
-# Operator that will evaluate whether a condition is true. If negative, it will print an error message.    
+# Operator that will evaluate whether a condition is true. 
+# If negative, it will print an error message.    
 assert 5 % 2 == 0
 
 # We can set the error message.

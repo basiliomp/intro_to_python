@@ -46,24 +46,54 @@ factorial(4)
 # Try to solve the following problem, first with loops, and then with recursive functions.
 # Build a function that returns the number associated to the number given as argument, 
 # considering that number as an index in Fibonacci's sequence.
+
+# Iterative solution
 def fibonacci(n: int) -> int:
     """ Returns the nth number of the Fibonacci's sequence. """
+    assert n >= 0, "Bad input"
+    if n == 0:
+        return 0
+    elif n == 1:
+        return 1
+    else:
+        a = 0
+        b = 1
+        for i in range(1, n):
+            c = a + b
+            a = b
+            b = c
+        return c
+    
     pass
+
+# Recursive solution
+def fibonacci(n: int) -> int:
+    """ Returns the nth number of the Fibonacci's sequence. """
+    assert n >= 0, "Bad input"
+    if n < 2:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
+ 
     
     
 ###
 # Another exercise
 
-employees = [[['Alan', 19, 'uk', 'm'],
-              ['Ada', 33, 'uk', 'w'],
-              ['Sophie', 38, 'fr', 'w']],
-              ['Karl', 29, 'ale', 'm'],
-              ['Pitagoras', 'gre', 'm'],
-              ['Stanislaw', 25, 'ukr', 'm']]
+employees = [[['Alan',  19, 'uk', 'm'],
+              ['Ada',   33, 'uk', 'w'],
+              ['Sophie',38, 'fr', 'w']],
+             [['Karl',  29, 'ale', 'm'],
+              ['Pitagoras', 49, 'gre', 'm'],
+              ['Stanislaw', 25, 'ukr', 'm']]]
 
-# The first table-list gathers the names of employees in department A, and the second one department B.
+# The first table-list gathers the names of employees in department A, and the 
+# second one department B.
 # Extract the following information, using as few lines of code as possible:
     # Average age in each department.
+def avg_dept(n: int) -> float:
+    len(employees[1])
+    pass
+    
     # Maximum age above all employees.
     # Number of nationalities in the company.
     # Share of women in each department
@@ -84,8 +114,60 @@ from typing import List
 
 def is_magic(matrix: List[List]) -> bool:
     """ Return True if every column, row and main diagonal adds up the same. """
-    return matrix
-
+    
+    #Checking if there are as many rows as columns.
+    assert len(matrix) == len(matrix[0]), 'Matrix is not squared.'
+    dimension = len(matrix) # Once we know it is a squared matrix.
+    magic_sum = sum(matrix[0]) # All the other possible sums should equal this value.
+        
+    # Checking the rows
+    for row in matrix:
+        if sum(row) != magic_sum:
+            return False
+    for id_col in range(dimension): # Id_col will be 0, then 1, then 2 in this case.
+        col_sum = 0
+        for row in matrix:
+            col_sum += row[id_col]
+        if col_sum != magic_sum:
+            return False
+    
+    # Checking the cloumns
+    for id_col:
+    
+    # Checking the main diagonal
+    sum_diag = 0
+    for index in range(dimension):
+        # Row and columns indexes must be equal for the numbers in the main digaonal.
+        sum_diag += matrix[index][index]
+    if sum_diag != magic_sum:
+        return False
+    
+    # Checking the secondary diagonal
+    sum_diag = 0
+    for index in range(dimension):
+        # Row and columns indexes must be equal for the numbers in the main digaonal.
+        sum_diag += matrix[index][dimension - 1 - index]
+    if sum_diag != magic_sum:
+        return False
+    
+    return True
+    
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+    
     
     
     
