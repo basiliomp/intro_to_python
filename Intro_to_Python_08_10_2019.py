@@ -108,25 +108,127 @@ for n in range(len(mkmx)):
 # Build a function to test whether a number in prime.
 def is_prime(n:int) -> bool:
     """ Evaluates whether the number given is prime. """
-    for i in range(1, n):
-        if n <= 0:
+    if n <= 0:
             return False
-        elif n % i == 0 and and i != 1 and i != n:
-            print(i, n)
+    elif n == 1:
+            return True
+    for i in range(1, n):
+        if n % i == 0:
             return False
     return True
 
-# Build a function that calculates the 
+# Build a function that calculates the slope and intercept parameters in
+# a linear regression.
+
+from typing import List, Dict
+
+xvec = [0, 1, 2, 3, 4, 5, 6, 7]
+yvec = [0, -1, -2, -3, -4, -5, -6, -7]
+
+def lin_reg(xvec:List, yvec:List) -> Dict:
+    import math
+    n = len(xvec)
+    b_0 = 0
+    b_1 = 0
+    sqr_xvec = []
+    sqr_yvec = []
+    xtimesy = []
+    # Calculate necessary parameters
+    for i in range(len(xvec)):
+        sqr_xvec.append(xvec[i] ** 2)
+        #print(sqr_xvec)
+        sqr_yvec.append(yvec[i] ** 2)
+        #print(sqr_xvec)
+        xtimesy.append(xvec[i] * yvec[i])
+        #print(sqr_xvec)
+    # Solving beta zero
+    
+    for i in range(len(xvec)):
+        
+    #(sum(xvec) * sum(yvec) - n * sum(xtimesy)) / sum(xvec) ** 2
+    #b_1 = (n * sum(xtimesy)) - (sum(xvec) * sum(yvec)) / (n * sum(sqr_xvec)) - (sum(xvec) ** 2)
+    b_0 = sum(yvec) - b_1 * sum(xvec) / n    
+    # Building the output
+    #lin_reg = {"intercept": b_0 ,
+    #                  "slope": b_1}
+    lin_reg = [b_0, b_1]   
+    return lin_reg
+        
+lin_reg(xvec, yvec)   
+        
+        
+        
+        
 
 
+mpg = [21,
+21,
+22.8,
+21.4,
+18.7,
+18.1,
+14.3,
+24.4,
+22.8,
+19.2,
+17.8,
+16.4,
+17.3,
+15.2,
+10.4,
+10.4,
+14.7,
+32.4,
+30.4,
+33.9,
+21.5,
+15.5,
+15.2,
+13.3,
+19.2,
+27.3,
+26,
+30.4,
+15.8,
+19.7,
+15,
+21.4]
 
+hp = [110,
+110,
+93,
+110,
+175,
+105,
+245,
+62,
+95,
+123,
+123,
+180,
+180,
+180,
+205,
+215,
+230,
+66,
+52,
+65,
+97,
+150,
+150,
+245,
+175,
+66,
+91,
+113,
+264,
+175,
+335,
+109,
+]
 
-
-
-
-
-
-
+lin_reg(mpg, hp)
 
 
 
