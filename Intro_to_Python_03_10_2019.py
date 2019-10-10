@@ -181,32 +181,3 @@ def is_magic(matrix: List[List]) -> bool:
         return False
     
     return True
-    
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
