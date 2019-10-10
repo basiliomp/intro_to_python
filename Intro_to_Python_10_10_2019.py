@@ -4,14 +4,35 @@ Tenth session
 
 Created on Thu Oct 10 18:35:36 2019
 
-@author: Basilio
+@author: Basilio M.P.
 """
 
 #############
 # Polimorfism (default arguments in functions)
 #############
 
-COPY TEXT FROM Clase_09_10_2019.pynb
+# Setting a default value for an argument, that does not need to be specified as a result is
+# as simple as assigning it inside initial parenthesis in the function definition.
+def mult_table_stop(n: int, stop: int=10) -> None: # stop will be 10, unless specified otherwise.
+    a = n
+    print('== {}'.format(a), '=' * 50)
+    for b in range(stop + 1):
+        c = a * b
+        print('{} X {} = {}'.format(a, b, c))
+
+mult_table_stop(2) # stop will be 10, unless specified otherwise.
+
+# IN OTHER PROGRAMMING LANGUAGES, this is achieved through the following scheme:
+# This would be the general case function (2 arguments).
+def mult_table_stop(n: int, stop: int) -> None:
+    a = n
+    print('== {}'.format(a), '=' * 50)
+    for b in range(stop + 1):
+        c = a * b
+        print('{} X {} = {}'.format(a, b, c))
+# This the specific case that will be most used, and therefore can be called without specifying one argument.
+def mult_table_stop(n: int) -> None:
+    mult_table_stop(n, 10)
 
 ########################
 # NON DECLARED ARGUMENTS
