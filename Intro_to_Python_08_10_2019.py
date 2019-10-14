@@ -122,8 +122,8 @@ def is_prime(n:int) -> bool:
 
 from typing import List, Dict
 
-xvec = [0, 1, 2, 3, 4, 5, 6, 7]
-yvec = [0, -1, -2, -3, -4, -5, -6, -7]
+xvec = [x for x in range(200)]
+yvec = [list(np.random.normal(size=200))]
 
 def lin_reg(xvec:List, yvec:List) -> Dict:
     import math
@@ -133,32 +133,41 @@ def lin_reg(xvec:List, yvec:List) -> Dict:
     sqr_xvec = []
     sqr_yvec = []
     xtimesy = []
+    mean_x = sum(xvec) / len(xvec)
+    mean_y = sum(yvec) / len(yvec)
+    varix = 0
+    variy = 0
+    numerator = 0
     # Calculate necessary parameters
     for i in range(len(xvec)):
         sqr_xvec.append(xvec[i] ** 2)
-        #print(sqr_xvec)
         sqr_yvec.append(yvec[i] ** 2)
-        #print(sqr_xvec)
         xtimesy.append(xvec[i] * yvec[i])
-        #print(sqr_xvec)
-    # Solving beta zero
-    
-    for i in range(len(xvec)):
-        
-    #(sum(xvec) * sum(yvec) - n * sum(xtimesy)) / sum(xvec) ** 2
-    #b_1 = (n * sum(xtimesy)) - (sum(xvec) * sum(yvec)) / (n * sum(sqr_xvec)) - (sum(xvec) ** 2)
+        varix += xvec[i] - mean_x
+        variy += yvec[i] - mean_y
+        numerator += (xvec[i] - mean_x) * (yvec[i] - mean_y)
+    # Solving the slope (beta 1)
+    b_1 = sum(numerator) / (varix ** 2)
+    # Solving the intersection (beta 0)
     b_0 = sum(yvec) - b_1 * sum(xvec) / n    
     # Building the output
     #lin_reg = {"intercept": b_0 ,
     #                  "slope": b_1}
-    lin_reg = [b_0, b_1]   
+    lin_reg = [b_0, b_1]
     return lin_reg
         
-lin_reg(xvec, yvec)   
-        
-        
-        
-        
+lin_reg(xvec, yvec)                
+       
+### With numpy
+xvec = np.array(np.random.normal(size=200))
+yvec = np.array(np.random.normal(size=200))
+b_0 = 0
+b_1 = 0
+
+numerator = np.sum((xvec - np.mean(xvec)) * (yvec - np.mean(yvec)))
+denomin = np.sum((xvec - np.mean(xvec)) ** 2)
+b_1 = numerator / denomin    
+b_0 = np.mean(yvec) - a * np.mean(xvec)
 
 
 mpg = [21,

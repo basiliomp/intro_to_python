@@ -125,7 +125,7 @@ for i in range(2, n):
         is_prime = False
 print(i, is_prime)
 
-# Using 'break' we can avoid all those evaluations, saving time and energy in so.
+# Using 'break' we can avoid all those evaluations, saving time and energy in doing so.
 for i in range(2, n):
     if n % i == 0:
         print(i)
@@ -133,7 +133,6 @@ for i in range(2, n):
         break
 print(i, is_prime)
 
-COPY FROM NOTEBOOK!!!!
 # Continue
 n = 10
 is_prime = True

@@ -154,8 +154,38 @@ round(mypi, 4) == round(math.pi, 4)
 print(mypi)
 
 ### Solving the exercise in class
-COPY FROM NOTEBOOK
+# Plotting the positions of the darts in the x-y plane.
+fig, ax = plt.subplots()
+ax.scatter(x, y, s=3)
+fig.show()
 
-# Running over two lists in parallel with zip
-for x[i], y[i] in zip(x, y):
+# Function to evaluate whether a dart hit the dartboard. It uses the Euclidean distance
+# to determine which darts are within the radius of the dartboard or out (miss hit).
+def is_in_circle(x: float, y: float) -> bool:
+    return np.sqrt((x - .5) ** 2 + (y - .5) ** 2) <= .5
 
+points_are_in = []
+for i in range(len(x)):
+    px = x[i]
+    py = y[i]
+    is_in = is_in_circle(px, py)
+    points_are_in.append(is_in)
+
+# Running over two lists in parallel with zip (the same as before, just with a new function)
+points_are_in = []
+for px, py in zip(x, y):
+    points_are_in.append(is_in_circle(px, py))
+
+# Graphical representation of the 10,000 darts, coloured by ending position (in/out)
+fig, ax = plt.subplots()
+ax.scatter(x, y, s=3, c=points_are_in)
+fig.show()
+
+# Now, let's find the value of pi from those results.
+IN = 0
+for is_in in points_are_in:
+    if is_in:
+        IN += 1
+
+pi = 4 * IN / len(points_are_in)
+print('Pi is more or less: {}'.format(pi))
