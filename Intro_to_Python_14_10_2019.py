@@ -44,3 +44,41 @@ model.coef_
 model.intercept_
 model.predict([[100]])
 type(model)
+
+# Our own linear regression
+true_a = 2
+true_b = 5
+
+xs = [x for x in range(200)]
+ys = []
+for x in xs:
+    ys.append(true_a * x + true_b + np.random.normal(0, (x / 10) ** 1.5))
+
+fig, ax = plt.subplots()
+ax.scatter(xs, ys)
+
+x_mean = sum(xs) / len(xs)
+y_mean = sum(ys) / len(ys)
+
+num = 0
+for x, y in zip(xs, ys):
+    num += (x - x_mean) * (y - y_mean)
+den = 0
+for x in xs:
+    den += (x - x_mean) ** 2
+
+# Solving a, the slope of the linear regression
+a = num / den
+print(a)
+
+# Solving b, the intercept of the linear regression
+b = y_mean - a * x_mean
+print(b)
+
+# Graphical representation of the linear regression
+fig, ax = plt.subplots()
+ax.scatter(xs, ys)
+ax.plot([0, 200], [a * 0 + b, a * 200 + b], 'r', lw=5, alpha=.7)
+
+# Another library for graphical representation: bokeh
+# And there is also plotly, especially a food option for 3-d graphics.
