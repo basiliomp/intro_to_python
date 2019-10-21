@@ -25,19 +25,19 @@ conda activate intropython
 # In[ ]:
 
 
-# Pedir al usuario un tamaño de diámetro por teclado y calcular el área del círculo con el diámetro proporcionado. 
-# Imprimir el resultado en pantalla.
+# Ask the user to input by keyboard the diameter of a circle. Then use this to calculate the corresponding circle area.
+# Print the result to screen.
 
 # Solución inicial
-diametro = input("Introduce el número correspondiente al diámetro del círculo: ")
-area_circulo = ((float(diametro) / 2) ** 2) * 3.141592
+diameter = input("Insert a number for the diameter of a circle:")
+circle_area = ((float(diameter) / 2) ** 2) * 3.141592
 
-print(area_circulo)
+print(circle_area)
 
 
 # In[ ]:
 
 
-# Solución en una línea
-print("El área es", ((float(input("Introduce el número correspondiente al diámetro del círculo: "))/2) ** 2) * 3.141592)
+# One-line solution
+print("The area is", ((float(input("Insert a number for the diameter of a circle: "))/2) ** 2) * 3.141592)
 
