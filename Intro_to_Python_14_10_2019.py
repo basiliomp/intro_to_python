@@ -10,7 +10,7 @@ Created on Mon Oct 14 17:17:35 2019
 ############################
 # NumPy, MatPlotLib, Seaborn
 ############################
-
+print(new_var)
 import numpy as np
 
 # Methods available in numpy: dozens!

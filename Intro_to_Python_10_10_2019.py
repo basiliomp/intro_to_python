@@ -150,6 +150,3 @@ for i in range(0, n):
     if i == 0:
         continue
     print(i / i ** 2)
-
-
-    
