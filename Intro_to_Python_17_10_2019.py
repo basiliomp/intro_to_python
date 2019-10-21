@@ -52,21 +52,63 @@ MyList.length()
 __getitem__ # Special method.
 _nameofthemethod # Private method, those with an underscore at the start.
 
-#########
-# MODULES
-#########
-
-# Modules are a set of elements bundled together, as packages in R.
-
-# In syntax 'numpy.random.normal()', the first word refers to the directory (numpy),
-# the second word refers to the file (random), and the third one to the function (normal()).
 
 ############
 # ASSIGNMNET
 ############
+# Initial set up
+n_doors = 3
+iterations = 100
+total_wins = 0
 
-# Build a program to run an iteration over the Monty Hall game, then execute it
-# several times keepig the initial choice, and then switching boxes. This way you
-# will test the results.
+doors = [False] * n_doors # Creating a list of 3 'empty' of non-prized doors.
+
+import random
+for _ in range(iterations):
+    prize_index = random.randint(0, 2)
+
+    doors[prize_index] = True # Assigning the prize to the random index
+
+    chosen_door = random.randint(0, n_doors - 1)
+
+    #print(doors, chosen_door)
+
+    did_i_win = doors[chosen_door]
+    if did_i_win:
+        total_wins += 1
+
+print("Ratio of wins {}".format(total_wins / iterations))
 
 
+# Second simulation with one opening before the final choice of door.
+n_doors = 3
+iterations = 100
+total_wins = 0
+
+doors = [False] * n_doors # Creating a list of 3 'empty' of non-prized doors.
+
+import random
+for _ in range(iterations):
+    prize_index = random.randint(0, n_doors - 1) # From 0 to 2, both included.
+
+    doors[prize_index] = True # Assigning the prize to the random index
+
+    chosen_door = random.randint(0, n_doors - 1)
+    #print(doors, chosen_door)
+    host_door = random.randint(0, n_doors)
+    while host_door != chosen_door and host_door != prize_index:
+        host_door = prize_index = random.randint(0, n_doors)
+        print(doors)
+        print(chosen_door, host_door)
+    
+    if chosen_door == prize_index:
+        host_door = 0 if chosen_door > 0 else 1
+    else:
+        host_door = 
+    did_i_win = doors[chosen_door]
+
+    # Checking     
+    if did_i_win:
+        total_wins += 1
+
+print("Ratio of wins {}".format(total_wins / iterations))
